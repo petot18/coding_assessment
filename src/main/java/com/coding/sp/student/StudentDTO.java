@@ -2,10 +2,12 @@ package com.coding.sp.student;
 
 import com.coding.sp.subject.SubjectDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class StudentDTO {
     private String student_id;
 

@@ -2,6 +2,7 @@ package com.coding.sp.student;
 
 import com.coding.sp.subject.Subject;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
