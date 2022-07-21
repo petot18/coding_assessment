@@ -5,7 +5,7 @@ import com.coding.sp.student.StudentDTO;
 import com.coding.sp.student.StudentRepository;
 import com.coding.sp.subject.Subject;
 import com.coding.sp.subject.SubjectDTO;
-import com.coding.sp.subject.SubjectRepository;
+import com.coding.sp.subject.SubjectStudentRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ import java.util.*;
 public class CodingAssessmentApplication implements CommandLineRunner {
 
     @Autowired
-    SubjectRepository subjectRepository;
+    SubjectStudentRepository subjectStudentRepository;
 
     @Autowired
     StudentRepository studentRepository;
@@ -67,7 +67,7 @@ public class CodingAssessmentApplication implements CommandLineRunner {
                         subject1.setDuration_code(subject.getDuration_code());
                         subject1.setGps_coordinates(subject.getGps_coordinates());
                         subject1.setHoliday(subject.isHoliday());
-                        subject1 = subjectRepository.save(subject1);
+                        subject1 = subjectStudentRepository.save(subject1);
                     }
                 }
             }
@@ -82,7 +82,7 @@ public class CodingAssessmentApplication implements CommandLineRunner {
                 for (SubjectDTO dto : studentDTO.getClass_details()) {
                     if (!str.contains(dto.getSubject_code())) {
                         System.out.println("Subject ID: " + dto.getSubject_code());
-                        Subject isFound = subjectRepository.findBySubjectCode(dto.getSubject_code());
+                        Subject isFound = subjectStudentRepository.findBySubjectCode(dto.getSubject_code());
 
                         System.out.println(isFound);
                         if (isFound != null) {

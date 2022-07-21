@@ -1,8 +1,11 @@
 package com.coding.sp.subject;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
@@ -154,5 +157,10 @@ public class SubjectDTO {
         this.isHoliday = holiday;
     }
 
+    @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
+    private List<SubjectStudentDTO> student_ids;
 
+
+    public void setStudent_ids(List<SubjectStudentDTO> studentDTO) {
+    }
 }

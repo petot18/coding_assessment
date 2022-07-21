@@ -22,55 +22,50 @@ import java.util.Set;
 public class Class {
 
         @Id
-        private String id;
-
+        private long id;
         @Column
         private String subject_code;
-
         @Column
         private String subject_desc;
-
         @Column
-        private Date week_start_date;
-
+        private String week_start_date;
         @Column
-        private Date week_end_date;
-
+        private String week_end_date;
         @Column
-        private Date exact_class_date;
-
+        private String exact_class_date;
         @Column
         private String day_of_week;
-
         @Column
-        private double room_number;
-
+        private String room_number;
         @Column
-        private double room;
-
+        private String room;
         @Column
         private String gps_coordinates;
-
         @Column
         private String start_time;
-
         @Column
         private String end_time;
-
         @Column
         private String campus_code;
-
         @Column
         private boolean hasStandardRoomDescription;
-
         @Column
         private int duration;
-
         @Column
-        private char duration_code;
+        private String duration_code;
+        @Column
+        private boolean isHoliday;
 
         @ManyToMany
         Set<Student> listOfStudents;
+
+//        public Set<Student> getListOfStudents() {
+//                return listOfStudents;
+//        }
+//
+//        public void setListOfStudents(Set<Student> listOfStudents) {
+//                this.listOfStudents = listOfStudents;
+//        }
 
         @Override
         public boolean equals(Object o) {

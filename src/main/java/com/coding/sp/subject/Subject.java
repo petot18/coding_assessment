@@ -6,7 +6,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -53,7 +55,16 @@ public class Subject {
     @Column
     private boolean isHoliday;
 
+    @ManyToMany
+    Set<Student> listOfStudents;
 
+    public Set<Student> getListOfStudents() {
+        return listOfStudents;
+    }
+
+    public void setListOfStudents(Set<Student> listOfStudents) {
+        this.listOfStudents = listOfStudents;
+    }
 
     public long getId() {
         return id;
@@ -197,7 +208,7 @@ public class Subject {
     }
 
     public void setHoliday(boolean holiday) {
-        this.isHoliday = holiday;
+        isHoliday = holiday;
     }
 
     @Override
