@@ -53,6 +53,8 @@ public class Subject {
     @Column
     private boolean isHoliday;
 
+
+
     public long getId() {
         return id;
     }
@@ -195,7 +197,7 @@ public class Subject {
     }
 
     public void setHoliday(boolean holiday) {
-        isHoliday = holiday;
+        this.isHoliday = holiday;
     }
 
     @Override

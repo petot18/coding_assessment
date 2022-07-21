@@ -51,7 +51,6 @@ public class CodingAssessmentApplication implements CommandLineRunner {
                     Subject subject1 = new Subject();
                     if (!subjNames.contains(subject.getSubject_code())) {
                         subjNames.add(subject.getSubject_code());
-
                         subject1.setSubjectCode(subject.getSubject_code());
                         subject1.setSubject_desc(subject.getSubject_desc());
                         subject1.setWeek_start_date(subject.getWeek_start_date());

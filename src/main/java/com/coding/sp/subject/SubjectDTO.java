@@ -151,7 +151,7 @@ public class SubjectDTO {
     }
 
     public void setHoliday(boolean holiday) {
-        isHoliday = holiday;
+        this.isHoliday = holiday;
     }
 
 
