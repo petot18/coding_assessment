@@ -10,5 +10,7 @@ import java.util.Optional;
 public interface SubjectStudentRepository extends CrudRepository<Subject, Long> {
 
     Subject findBySubjectCode(String subject_code);
+
     Optional<Subject> findById(String subject_code);
+//    Optional<Subject> findById(String subject_code);
 }

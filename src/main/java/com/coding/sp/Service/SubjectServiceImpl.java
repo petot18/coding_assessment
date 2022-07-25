@@ -37,15 +37,16 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public SubjectDTO viewEnrolledStudents(String subjectCode) throws Exception {
+    public SubjectDTO viewEnrolledStudents(String subject_code) throws Exception {
 //        return null;
-        Optional<Subject> listOfUniqueStudentIds = subjectStudentRepository.findById(subjectCode);
+        System.out.print("Success");
+        Optional<Subject> listOfUniqueStudentIds = subjectStudentRepository.findById(subject_code);
         Subject cls = new Subject();
         SubjectDTO subjectDTO = new SubjectDTO();
         List<SubjectStudentDTO> studentDTO = new ArrayList<>();
 
         if (listOfUniqueStudentIds.isPresent()) cls = listOfUniqueStudentIds.get();
-        else throw new Exception("Class ID " + subjectCode +" not found!");
+        else throw new Exception("Class ID " + subject_code +" not found!");
 
         for (Student std : cls.getListOfStudents()){
             SubjectStudentDTO studentDTO1 = new SubjectStudentDTO();

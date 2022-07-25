@@ -27,7 +27,7 @@ public class SubjectDTO {
     private boolean hasStandardRoomDescription;
     private int duration;
     private String duration_code;
-    private boolean isHoliday;
+//    private boolean isHoliday;
 
     public String getSubject_code() {
         return subject_code;
@@ -149,13 +149,13 @@ public class SubjectDTO {
         this.duration_code = duration_code;
     }
 
-    public boolean isHoliday() {
-        return isHoliday;
-    }
+//    public boolean isHoliday() {
+//        return isHoliday;
+//    }
 
-    public void setHoliday(boolean holiday) {
-        this.isHoliday = holiday;
-    }
+//    public void setHoliday(boolean holiday) {
+//        this.isHoliday = holiday;
+//    }
 
     @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
     private List<SubjectStudentDTO> student_ids;

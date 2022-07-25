@@ -29,10 +29,10 @@ public class SubjectController {
     public ResponseEntity<SubjectStudentDTO> getAllSubjects() throws Exception {
         return new ResponseEntity(subjectService.getAllSubject(), HttpStatus.OK);
     }
-    @GetMapping(value = "/{subjectCode}",
+    @GetMapping(value = "/all-subjects/{subject_code}",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SubjectDTO> getStudentsEnrolledInASubject(
-            @PathVariable("subjectCode") String subjectCode) throws Exception {
-        return new ResponseEntity(subjectService.viewEnrolledStudents(subjectCode), HttpStatus.OK);
+            @PathVariable("subject_code") String subject_code) throws Exception {
+        return new ResponseEntity(subjectService.viewEnrolledStudents(subject_code), HttpStatus.OK);
     }
 }
