@@ -66,7 +66,6 @@ public class CodingAssessmentApplication implements CommandLineRunner {
                         subject1.setDuration(subject.getDuration());
                         subject1.setDuration_code(subject.getDuration_code());
                         subject1.setGps_coordinates(subject.getGps_coordinates());
-                        subject1.setHoliday(subject.isHoliday());
                         subject1 = subjectStudentRepository.save(subject1);
                     }
                 }

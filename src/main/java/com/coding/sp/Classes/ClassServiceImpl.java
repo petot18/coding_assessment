@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,9 +46,11 @@ public class ClassServiceImpl implements ClassService {
 
     @Override
     public List<SubjectDTO> list() {
-        return subjectStudentRepository.findAll().stream().map(cls ->{
+        List<SubjectDTO> lists = new ArrayList<>();
+
+        subjectStudentRepository.findAll().forEach((cls) ->{
             var subjectDTO = new SubjectDTO();
-            subjectDTO.setSubject_code(cls.getSubject_code());
+            subjectDTO.setSubject_code(cls.getSubjectCode());
             subjectDTO.setSubject_desc(cls.getSubject_desc());
             subjectDTO.setWeek_start_date(cls.getWeek_start_date());
             subjectDTO.setWeek_end_date(cls.getWeek_end_date());
@@ -62,9 +65,10 @@ public class ClassServiceImpl implements ClassService {
             subjectDTO.setHasStandardRoomDescription(cls.isHasStandardRoomDescription());
             subjectDTO.setDuration(cls.getDuration());
             subjectDTO.setDuration_code(cls.getDuration_code());
-            return subjectDTO;
-        }).collect(Collectors.toList());
-        return null;
+            lists.add(subjectDTO);
+        });
+
+        return lists;
     }
 
     @Override

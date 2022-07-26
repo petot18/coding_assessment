@@ -11,28 +11,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/subject")
+@RequestMapping
 public class SubjectController {
     @Autowired
     SubjectService subjectService;
-
-//    @Autowired
-//    ClassService classService;
 
 //    @GetMapping(value = "/subjects")
 //    public String getSubjects(){
 //
 //        return "All Subjects!";
 //    }
-    @GetMapping(value = "/all-subjects",
+    @GetMapping(value = "/subjects",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SubjectStudentDTO> getAllSubjects() throws Exception {
         return new ResponseEntity(subjectService.getAllSubject(), HttpStatus.OK);
     }
-    @GetMapping(value = "/all-subjects/{subject_code}",
+    @GetMapping(value = "/subjects/{subject_code}",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SubjectDTO> getStudentsEnrolledInASubject(
-            @PathVariable("subject_code") String subject_code) throws Exception {
-        return new ResponseEntity(subjectService.viewEnrolledStudents(subject_code), HttpStatus.OK);
+            @PathVariable("subject_code") String subjectCode) throws Exception {
+        return new ResponseEntity(subjectService.viewEnrolledStudents(subjectCode), HttpStatus.OK);
     }
 }
