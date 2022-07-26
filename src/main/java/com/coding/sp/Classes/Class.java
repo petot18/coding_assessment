@@ -22,39 +22,35 @@ import java.util.Set;
 public class Class {
 
         @Id
-        private long id;
+        private String subjectCode;
         @Column
-        private String subject_code;
+        private String subjectDesc;
         @Column
-        private String subject_desc;
+        private String weekStartDate;
         @Column
-        private String week_start_date;
+        private String weekEndDate;
         @Column
-        private String week_end_date;
+        private String exactClassDate;
         @Column
-        private String exact_class_date;
+        private String dayOfWeek;
         @Column
-        private String day_of_week;
-        @Column
-        private String room_number;
+        private String roomNumber;
         @Column
         private String room;
         @Column
-        private String gps_coordinates;
+        private String gpsCoordinates;
         @Column
-        private String start_time;
+        private String startTime;
         @Column
-        private String end_time;
+        private String endTime;
         @Column
-        private String campus_code;
+        private String campusCode;
         @Column
         private boolean hasStandardRoomDescription;
         @Column
         private int duration;
         @Column
-        private String duration_code;
-        @Column
-        private boolean isHoliday;
+        private String durationCode;
 
         @ManyToMany
         Set<Student> listOfStudents;
@@ -72,12 +68,12 @@ public class Class {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             Class aClass = (Class) o;
-            return subject_code.equals(aClass.subject_code);
+            return subjectCode.equals(aClass.subjectCode);
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(subject_code);
+            return Objects.hash(subjectCode);
         }
 
 }

@@ -24,22 +24,22 @@ public class ClassServiceImpl implements ClassService {
 
         SubjectDTO subjectDTO = new SubjectDTO();
 
-        subjectDTO.setSubject_code(cls.getSubjectCode());
-        subjectDTO.setSubject_desc(cls.getSubject_desc());
-        subjectDTO.setWeek_start_date(cls.getWeek_start_date());
-        subjectDTO.setWeek_end_date(cls.getWeek_end_date());
-        subjectDTO.setExact_class_date(cls.getExact_class_date());
-        subjectDTO.setDay_of_week(cls.getDay_of_week());
-        subjectDTO.setRoom_number(cls.getRoom_number());
+        subjectDTO.setSubjectCode(cls.getSubjectCode());
+        subjectDTO.setSubjectCode(cls.getSubjectCode());
+        subjectDTO.setSubjectDesc(cls.getSubjectDesc());
+        subjectDTO.setWeekStartDate(cls.getWeekStartDate());
+        subjectDTO.setWeekEndDate(cls.getWeekEndDate());
+        subjectDTO.setExactClassDate(cls.getExactClassDate());
+        subjectDTO.setDayOfWeek(cls.getDayOfWeek());
+        subjectDTO.setRoomNumber(cls.getRoomNumber());
         subjectDTO.setRoom(cls.getRoom());
-        subjectDTO.setGps_coordinates(cls.getGps_coordinates());
-        subjectDTO.setStart_time(cls.getStart_time());
-        subjectDTO.setEnd_time(cls.getEnd_time());
-        subjectDTO.setCampus_code(cls.getCampus_code());
+        subjectDTO.setGpsCoordinates(cls.getGpsCoordinates());
+        subjectDTO.setStartTime(cls.getStartTime());
+        subjectDTO.setEndTime(cls.getEndTime());
+        subjectDTO.setCampusCode(cls.getCampusCode());
         subjectDTO.setHasStandardRoomDescription(cls.isHasStandardRoomDescription());
         subjectDTO.setDuration(cls.getDuration());
-        subjectDTO.setDuration_code(cls.getDuration_code());
-
+        subjectDTO.setDurationCode(cls.getDurationCode());
         return subjectDTO;
     }
 
@@ -50,25 +50,28 @@ public class ClassServiceImpl implements ClassService {
 
         subjectStudentRepository.findAll().forEach((cls) ->{
             var subjectDTO = new SubjectDTO();
-            subjectDTO.setSubject_code(cls.getSubjectCode());
-            subjectDTO.setSubject_desc(cls.getSubject_desc());
-            subjectDTO.setWeek_start_date(cls.getWeek_start_date());
-            subjectDTO.setWeek_end_date(cls.getWeek_end_date());
-            subjectDTO.setExact_class_date(cls.getExact_class_date());
-            subjectDTO.setDay_of_week(cls.getDay_of_week());
-            subjectDTO.setRoom_number(cls.getRoom_number());
-            subjectDTO.setRoom(cls.getRoom());
-            subjectDTO.setGps_coordinates(cls.getGps_coordinates());
-            subjectDTO.setStart_time(cls.getStart_time());
-            subjectDTO.setEnd_time(cls.getEnd_time());
-            subjectDTO.setCampus_code(cls.getCampus_code());
-            subjectDTO.setHasStandardRoomDescription(cls.isHasStandardRoomDescription());
-            subjectDTO.setDuration(cls.getDuration());
-            subjectDTO.setDuration_code(cls.getDuration_code());
+
+        subjectDTO.setSubjectCode(cls.getSubjectCode());
+        subjectDTO.setSubjectCode(cls.getSubjectCode());
+        subjectDTO.setSubjectDesc(cls.getSubjectDesc());
+        subjectDTO.setWeekStartDate(cls.getWeekStartDate());
+        subjectDTO.setWeekEndDate(cls.getWeekEndDate());
+        subjectDTO.setExactClassDate(cls.getExactClassDate());
+        subjectDTO.setDayOfWeek(cls.getDayOfWeek());
+        subjectDTO.setRoomNumber(cls.getRoomNumber());
+        subjectDTO.setRoom(cls.getRoom());
+        subjectDTO.setGpsCoordinates(cls.getGpsCoordinates());
+        subjectDTO.setStartTime(cls.getStartTime());
+        subjectDTO.setEndTime(cls.getEndTime());
+        subjectDTO.setCampusCode(cls.getCampusCode());
+        subjectDTO.setHasStandardRoomDescription(cls.isHasStandardRoomDescription());
+        subjectDTO.setDuration(cls.getDuration());
+        subjectDTO.setDurationCode(cls.getDurationCode());
             lists.add(subjectDTO);
         });
 
         return lists;
+//        return null;
     }
 
     @Override

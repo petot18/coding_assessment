@@ -9,16 +9,16 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class StudentDTO {
-    private String student_id;
+    private String studentId;
 
     private List<SubjectDTO> class_details;
 
-    public String getStudent_id() {
-        return student_id;
+    public String getStudentId() {
+        return studentId;
     }
 
     public void setStudent_id(String student_id) {
-        this.student_id = student_id;
+        this.studentId = studentId;
     }
 
     public List<SubjectDTO> getClass_details() {

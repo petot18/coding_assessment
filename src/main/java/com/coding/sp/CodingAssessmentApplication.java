@@ -49,23 +49,25 @@ public class CodingAssessmentApplication implements CommandLineRunner {
                 System.out.println("Student code: " + student.getStudent_id());
                 for (SubjectDTO subject : student.getClass_details()) {
                     Subject subject1 = new Subject();
-                    if (!subjNames.contains(subject.getSubject_code())) {
-                        subjNames.add(subject.getSubject_code());
-                        subject1.setSubjectCode(subject.getSubject_code());
-                        subject1.setSubject_desc(subject.getSubject_desc());
-                        subject1.setWeek_start_date(subject.getWeek_start_date());
-                        subject1.setWeek_end_date(subject.getWeek_end_date());
-                        subject1.setExact_class_date(subject.getExact_class_date());
-                        subject1.setDay_of_week(subject.getDay_of_week());
-                        subject1.setRoom_number(subject.getRoom_number());
+                    if (!subjNames.contains(subject.getSubjectCode())) {
+                        subjNames.add(subject.getSubjectCode());
+                        subject1.setSubjectCode(subject.getSubjectCode());
+                        subject1.setSubjectDesc(subject.getSubjectDesc());
+                        subject1.setWeekStartDate(subject.getWeekStartDate());
+                        subject1.setWeekEndDate(subject.getWeekEndDate());
+                        subject1.setExactClassDate(subject.getExactClassDate());
+                        subject1.setDayOfWeek(subject.getDayOfWeek());
+                        subject1.setRoomNumber(subject.getRoomNumber());
                         subject1.setRoom(subject.getRoom());
-                        subject1.setStart_time(subject.getStart_time());
-                        subject1.setEnd_time(subject.getEnd_time());
-                        subject1.setCampus_code(subject.getCampus_code());
+                        subject1.setStartTime(subject.getStartTime());
+                        subject1.setEndTime(subject.getEndTime());
+                        subject1.setCampusCode(subject.getCampusCode());
                         subject1.setHasStandardRoomDescription(subject.isHasStandardRoomDescription());
                         subject1.setDuration(subject.getDuration());
-                        subject1.setDuration_code(subject.getDuration_code());
-                        subject1.setGps_coordinates(subject.getGps_coordinates());
+                        subject1.setDurationCode(subject.getDurationCode());
+                        subject1.setGpsCoordinates(subject.getGpsCoordinates());
+                        subject1.setHoliday(subject.isHoliday());
+
                         subject1 = subjectStudentRepository.save(subject1);
                     }
                 }
@@ -79,9 +81,9 @@ public class CodingAssessmentApplication implements CommandLineRunner {
                 List<String> str = new ArrayList<>();
 
                 for (SubjectDTO dto : studentDTO.getClass_details()) {
-                    if (!str.contains(dto.getSubject_code())) {
-                        System.out.println("Subject ID: " + dto.getSubject_code());
-                        Subject isFound = subjectStudentRepository.findBySubjectCode(dto.getSubject_code());
+                    if (!str.contains(dto.getSubjectCode())) {
+                        System.out.println("Subject ID: " + dto.getSubjectCode());
+                        Subject isFound = subjectStudentRepository.findBySubjectCode(dto.getSubjectCode());
 
                         System.out.println(isFound);
                         if (isFound != null) {
@@ -90,7 +92,7 @@ public class CodingAssessmentApplication implements CommandLineRunner {
                         }
                     }
                 }
-                stud.setStudent_id(studentDTO.getStudent_id());
+                stud.setStudentId(studentDTO.getStudent_id());
                 stud.setClass_details(st);
                 stud = studentRepository.save(stud);
                 }

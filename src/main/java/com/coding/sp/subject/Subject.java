@@ -3,140 +3,113 @@ package com.coding.sp.subject;
 import com.coding.sp.student.Student;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Subject {
+
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(nullable = false)
+//    private long id;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false)
-    private long id;
-
-    @ManyToMany(mappedBy = "class_details", fetch = FetchType.EAGER)
-    private List<Student> students = new ArrayList<>();
-
-    @Column
     private String subjectCode;
     @Column
-    private String subject_desc;
+    private String subjectDesc;
     @Column
-    private String week_start_date;
+    private String weekStartDate;
     @Column
-    private String week_end_date;
+    private String weekEndDate;
     @Column
-    private String exact_class_date;
+    private String exactClassDate;
     @Column
-    private String day_of_week;
+    private String dayOfWeek;
     @Column
-    private String room_number;
+    private String roomNumber;
     @Column
     private String room;
     @Column
-    private String gps_coordinates;
+    private String gpsCoordinates;
     @Column
-    private String start_time;
+    private String startTime;
     @Column
-    private String end_time;
+    private String endTime;
     @Column
-    private String campus_code;
+    private String campusCode;
     @Column
     private boolean hasStandardRoomDescription;
     @Column
     private int duration;
     @Column
-    private String duration_code;
+    private String durationCode;
+
     @Column
     private boolean isHoliday;
 
-    @ManyToMany
-    Set<Student> listOfStudents;
-
-    public Set<Student> getListOfStudents() {
-        return listOfStudents;
+    public boolean isHoliday() {
+        return isHoliday;
     }
 
-    public void setListOfStudents(Set<Student> listOfStudents) {
-        this.listOfStudents = listOfStudents;
+    public void setHoliday(boolean holiday) {
+        isHoliday = holiday;
     }
 
-    public long getId() {
-        return id;
+    public String getSubjectDesc() {
+        return subjectDesc;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setSubjectDesc(String subjectDesc) {
+        this.subjectDesc = subjectDesc;
     }
 
-
-    public List<Student> getStudents() {
-        return students;
+    public String getWeekStartDate() {
+        return weekStartDate;
     }
 
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    public void setWeekStartDate(String weekStartDate) {
+        this.weekStartDate = weekStartDate;
     }
 
-    public String getSubjectCode() {
-        return subjectCode;
+    public String getWeekEndDate() {
+        return weekEndDate;
     }
 
-    public void setSubjectCode(String subjectCode) {
-        this.subjectCode = subjectCode;
+    public void setWeekEndDate(String weekEndDate) {
+        this.weekEndDate = weekEndDate;
     }
 
-    public String getSubject_desc() {
-        return subject_desc;
+    public String getExactClassDate() {
+        return exactClassDate;
     }
 
-    public void setSubject_desc(String subject_desc) {
-        this.subject_desc = subject_desc;
+    public void setExactClassDate(String exactClassDate) {
+        this.exactClassDate = exactClassDate;
     }
 
-    public String getWeek_start_date() {
-        return week_start_date;
+    public String getDayOfWeek() {
+        return dayOfWeek;
     }
 
-    public void setWeek_start_date(String week_start_date) {
-        this.week_start_date = week_start_date;
+    public void setDayOfWeek(String dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
     }
 
-    public String getWeek_end_date() {
-        return week_end_date;
+    public String getRoomNumber() {
+        return roomNumber;
     }
 
-    public void setWeek_end_date(String week_end_date) {
-        this.week_end_date = week_end_date;
-    }
-
-    public String getExact_class_date() {
-        return exact_class_date;
-    }
-
-    public void setExact_class_date(String exact_class_date) {
-        this.exact_class_date = exact_class_date;
-    }
-
-    public String getDay_of_week() {
-        return day_of_week;
-    }
-
-    public void setDay_of_week(String day_of_week) {
-        this.day_of_week = day_of_week;
-    }
-
-    public String getRoom_number() {
-        return room_number;
-    }
-
-    public void setRoom_number(String room_number) {
-        this.room_number = room_number;
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
     public String getRoom() {
@@ -147,36 +120,36 @@ public class Subject {
         this.room = room;
     }
 
-    public String getGps_coordinates() {
-        return gps_coordinates;
+    public String getGpsCoordinates() {
+        return gpsCoordinates;
     }
 
-    public void setGps_coordinates(String gps_coordinates) {
-        this.gps_coordinates = gps_coordinates;
+    public void setGpsCoordinates(String gpsCoordinates) {
+        this.gpsCoordinates = gpsCoordinates;
     }
 
-    public String getStart_time() {
-        return start_time;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setStart_time(String start_time) {
-        this.start_time = start_time;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public String getEnd_time() {
-        return end_time;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setEnd_time(String end_time) {
-        this.end_time = end_time;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
-    public String getCampus_code() {
-        return campus_code;
+    public String getCampusCode() {
+        return campusCode;
     }
 
-    public void setCampus_code(String campus_code) {
-        this.campus_code = campus_code;
+    public void setCampusCode(String campusCode) {
+        this.campusCode = campusCode;
     }
 
     public boolean isHasStandardRoomDescription() {
@@ -195,43 +168,63 @@ public class Subject {
         this.duration = duration;
     }
 
-    public String getDuration_code() {
-        return duration_code;
+    public String getDurationCode() {
+        return durationCode;
     }
 
-    public void setDuration_code(String duration_code) {
-        this.duration_code = duration_code;
+    public void setDurationCode(String durationCode) {
+        this.durationCode = durationCode;
     }
 
-    public boolean isHoliday() {
-        return isHoliday;
+    public List<Student> getStudents() {
+        return students;
     }
 
-    public void setHoliday(boolean holiday) {
-        isHoliday = holiday;
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
+
+    @ManyToMany(mappedBy = "class_details", fetch = FetchType.EAGER)
+    private List<Student> students = new ArrayList<>();
+    @ManyToMany
+    Set<Student> listOfStudents;
+
+    public Set<Student> getListOfStudents() {
+        return listOfStudents;
+    }
+
+    public void setListOfStudents(Set<Student> listOfStudents) {
+        this.listOfStudents = listOfStudents;
+    }
+
+    public String getSubjectCode() {
+        return subjectCode;
+    }
+
+    public void setSubjectCode(String subjectCode) {
+        this.subjectCode = subjectCode;
+    }
+
 
     @Override
     public String toString() {
         return "Subject{" +
-                "id=" + id +
-                ", students=" + students +
-                ", subjectcode='" + subjectCode + '\'' +
-                ", subject_desc='" + subject_desc + '\'' +
-                ", week_start_date='" + week_start_date + '\'' +
-                ", week_end_date='" + week_end_date + '\'' +
-                ", exact_class_date='" + exact_class_date + '\'' +
-                ", day_of_week='" + day_of_week + '\'' +
-                ", room_number='" + room_number + '\'' +
+                " students=" + students +
+                ", subject_code='" + subjectCode + '\'' +
+                ", subject_desc='" + subjectDesc + '\'' +
+                ", week_start_date='" + weekStartDate + '\'' +
+                ", week_end_date='" + weekEndDate + '\'' +
+                ", exact_class_date='" + exactClassDate + '\'' +
+                ", day_of_week='" + dayOfWeek + '\'' +
+                ", room_number='" + roomNumber + '\'' +
                 ", room='" + room + '\'' +
-                ", gps_coordinates='" + gps_coordinates + '\'' +
-                ", start_time='" + start_time + '\'' +
-                ", end_time='" + end_time + '\'' +
-                ", campus_code='" + campus_code + '\'' +
+                ", gps_coordinates='" + gpsCoordinates + '\'' +
+                ", start_time='" + startTime + '\'' +
+                ", end_time='" + endTime + '\'' +
+                ", campus_code='" + campusCode + '\'' +
                 ", hasStandardRoomDescription=" + hasStandardRoomDescription +
                 ", duration=" + duration +
-                ", duration_code='" + duration_code + '\'' +
-                ", isHoliday=" + isHoliday +
+                ", duration_code='" + durationCode + '\'' +
                 '}';
     }
 }

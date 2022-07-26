@@ -17,8 +17,6 @@ public class SubjectServiceImpl implements SubjectService {
     @Autowired
     SubjectStudentRepository subjectStudentRepository;
 
-
-
     @Override
     public SubjectStudentDTO getAllSubject(){
 //        return null;
@@ -27,8 +25,8 @@ public class SubjectServiceImpl implements SubjectService {
         SubjectStudentDTO studentDTO = new SubjectStudentDTO();
         for (Subject ff : listOfClassDTOS){
             SubjectDTO clsDTO = new SubjectDTO();
-            clsDTO.setSubject_code(ff.getSubjectCode());
-            clsDTO.setSubject_desc(ff.getSubject_desc());
+            clsDTO.setSubjectCode(ff.getSubjectCode());
+            clsDTO.setSubjectDesc(ff.getSubjectDesc());
             sam.add(clsDTO);
         }
         studentDTO.setSubjects(sam);
@@ -37,25 +35,25 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public SubjectDTO viewEnrolledStudents(String subject_code) throws Exception {
+    public SubjectDTO viewEnrolledStudents(String subjectCode) throws Exception {
 //        return null;
         System.out.print("Success");
-        Optional<Subject> listOfUniqueStudentIds = subjectStudentRepository.findById(subject_code);
+        Optional<Subject> listOfUniqueStudentIds = subjectStudentRepository.findById(subjectCode);
         Subject cls = new Subject();
         SubjectDTO subjectDTO = new SubjectDTO();
         List<SubjectStudentDTO> studentDTO = new ArrayList<>();
 
         if (listOfUniqueStudentIds.isPresent()) cls = listOfUniqueStudentIds.get();
-        else throw new Exception("Class ID " + subject_code +" not found!");
+        else throw new Exception("Class ID " + subjectCode +" not found!");
 
         for (Student std : cls.getListOfStudents()){
             SubjectStudentDTO studentDTO1 = new SubjectStudentDTO();
-            studentDTO1.setStudent_id(std.getStudent_id());
+            studentDTO1.setStudent_id(std.getStudentId());
             studentDTO.add(studentDTO1);
         }
 
-        subjectDTO.setSubject_code(cls.getSubjectCode());
-        subjectDTO.setSubject_desc(cls.getSubject_desc());
+        subjectDTO.setSubjectCode(cls.getSubjectCode());
+        subjectDTO.setSubjectDesc(cls.getSubjectDesc());
         subjectDTO.setStudent_ids(studentDTO);
 
         return subjectDTO;

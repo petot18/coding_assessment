@@ -26,10 +26,10 @@ public class SubjectController {
     public ResponseEntity<SubjectStudentDTO> getAllSubjects() throws Exception {
         return new ResponseEntity(subjectService.getAllSubject(), HttpStatus.OK);
     }
-    @GetMapping(value = "/subjects/{subject_code}",
+    @GetMapping(value = "/subjects/{subjectCode}",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SubjectDTO> getStudentsEnrolledInASubject(
-            @PathVariable("subject_code") String subjectCode) throws Exception {
+            @PathVariable("subjectCode") String subjectCode) throws Exception {
         return new ResponseEntity(subjectService.viewEnrolledStudents(subjectCode), HttpStatus.OK);
     }
 }

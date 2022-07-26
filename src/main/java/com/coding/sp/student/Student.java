@@ -12,18 +12,19 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private long id;
 
-    @Column
-    private String student_id;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(nullable = false)
+//    private long id;
+
+    @Id
+    private String studentId;
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="subject_student",
             joinColumns = @JoinColumn(name="student_id"),
-            inverseJoinColumns = @JoinColumn(name = "subject_id")
+            inverseJoinColumns = @JoinColumn(name = "subject_code")
     )
     private List<Subject> class_details = new ArrayList<>();
 
@@ -32,21 +33,21 @@ public class Student {
         return class_details;
     }
 
-    public long getId() {
-        return id;
+
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
-
-    public String getStudent_id() {
-        return student_id;
-    }
-
-    public void setStudent_id(String student_id) {
-        this.student_id = student_id;
-    }
+//    public String getStudent_id() {
+//        return student_id;
+//    }
+//
+//    public void setStudent_id(String student_id) {
+//        this.student_id = student_id;
+//    }
 
     public void setClass_details(List<Subject> class_details) {
         this.class_details = class_details;
